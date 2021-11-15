@@ -1,6 +1,6 @@
-package LamdasExpression;
+package LambdasExpression;
 
-public class RunableLamdasExample {
+public class RunableLambdasExample {
     public static void main(String[] args) {
         // Khi sử dụng Java 7 để chạy đa luồng
         // Ví dụ về sử dụng đa luồng xử lý.

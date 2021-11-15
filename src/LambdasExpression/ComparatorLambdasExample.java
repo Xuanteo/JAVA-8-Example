@@ -1,8 +1,8 @@
-package LamdasExpression;
+package LambdasExpression;
 
 import java.util.Comparator;
 
-public class ComparatorLamdasExample {
+public class ComparatorLambdasExample {
     public static void main(String[] args) {
         // Tạo ra 1 bộ so sánh 2 số nguyên.
         // Sử dụng Java 7 để viết : nhập vào x, y nếu x>y trả về 1, x=y trả về 0, x<y trả về -1
