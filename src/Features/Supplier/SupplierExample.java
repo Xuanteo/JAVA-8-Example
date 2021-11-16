@@ -1,5 +1,6 @@
 package Features.Supplier;
 
+import Features.LambdasLocalVariable.LocalVariable;
 import Features.Repository.Persion;
 import Features.Repository.PersionRepository;
 
@@ -13,5 +14,6 @@ public class SupplierExample {
     public static void main(String[] args) {
         System.out.println("Result 1: " + s1.get());
         System.out.println("Result 2: " + s2.get());
+
     }
 }
