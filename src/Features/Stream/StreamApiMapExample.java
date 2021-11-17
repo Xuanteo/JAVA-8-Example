@@ -1,9 +1,8 @@
 package Features.Stream;
 
-import Features.Repository.Persion;
-import Features.Repository.PersionRepository;
+import Features.Repository.Person;
+import Features.Repository.PersonRepository;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -13,18 +12,18 @@ public class StreamApiMapExample {
 
     // Viết 1 phương thức lấy tên persion và chuyển tên thành chữ hoa.
     // Sử dụng list:
-    public static List<String> toNameUppertransform(List<Persion> listOfPersion) {
-        return listOfPersion
+    public static List<String> toNameUppertransform(List<Person> listOfPerson) {
+        return listOfPerson
                 .stream()
-                .map(Persion::getName)
+                .map(Person::getName)
                 .map(String::toUpperCase)
                 .collect(Collectors.toList());
     }
     // Sử dụng Set:
-    public static Set<String> toNameUppertransformSet(List<Persion> listOfPersion) {
-        return listOfPersion
+    public static Set<String> toNameUppertransformSet(List<Person> listOfPerson) {
+        return listOfPerson
                 .stream()
-                .map(Persion::getName)
+                .map(Person::getName)
                 .map(String::toUpperCase)
                 .collect(Collectors.toSet());
     }
@@ -39,8 +38,8 @@ public class StreamApiMapExample {
         fruits.stream().map(String::length).collect(Collectors.toList()).forEach(System.out::println);
         // In ra list Name to Upper case.
         System.out.println("List Name Persion to UpperCase List: " +
-                toNameUppertransform(PersionRepository.getAllPersions()));
+                toNameUppertransform(PersonRepository.getAllPersions()));
         System.out.println("List Name Persion to UpperCase Set: " +
-                toNameUppertransformSet(PersionRepository.getAllPersions()));
+                toNameUppertransformSet(PersonRepository.getAllPersions()));
     }
 }

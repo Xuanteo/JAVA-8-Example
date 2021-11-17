@@ -1,7 +1,7 @@
 package Features.Stream;
 
-import Features.Repository.Persion;
-import Features.Repository.PersionRepository;
+import Features.Repository.Person;
+import Features.Repository.PersonRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +32,11 @@ public class StreamVsCollectionExample {
 //        nameStream.forEach(p -> System.out.println("Áp dụng Stream + lambdas: "+p));
 
         // Lấy tên của persion trong list persion sử dụng stream để mở luồng.
-        List<String> namePersion = PersionRepository
+        List<String> namePersion = PersonRepository
                 .getAllPersions()
                 .stream()
                 .peek(per -> System.out.println(per)) //Trả về kết quả của mở luồng Stream of persion. dùng gỡ lỗi kiểm tra kết quả Stream.
-                .map(Persion::getName)
+                .map(Person::getName)
                 .peek(System.out::println)  // Có thể đặt ở các vị trí để kiểm tra kết quả trả ra sau map.
                 .collect(Collectors.toList());
         System.out.println(namePersion);

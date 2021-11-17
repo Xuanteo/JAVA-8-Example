@@ -3,7 +3,7 @@ package Features.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Persion {
+public class Person {
     private String name;
     private int height;
     private double salary;
@@ -11,7 +11,7 @@ public class Persion {
     private int kids;
     List<String> hobbies = new ArrayList<>();
 
-    public Persion(String name, int height, double salary, String gender, int kids, List<String> hobbies) {
+    public Person(String name, int height, double salary, String gender, int kids, List<String> hobbies) {
         this.name = name;
         this.height = height;
         this.salary = salary;

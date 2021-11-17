@@ -1,7 +1,7 @@
 package Features.Stream;
 
-import Features.Repository.Persion;
-import Features.Repository.PersionRepository;
+import Features.Repository.Person;
+import Features.Repository.PersonRepository;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,8 +11,8 @@ import java.util.stream.Stream;
 
 public class StreamFilterExample {
 
-    static Predicate<Persion> p1 = per -> per.getHeight() >170;
-    static Predicate<Persion> p2 = per -> per.getGender().equals("Male");
+    static Predicate<Person> p1 = per -> per.getHeight() >170;
+    static Predicate<Person> p2 = per -> per.getGender().equals("Male");
 
     public static void main(String[] args) {
         // Tạo 1 list:
@@ -25,7 +25,7 @@ public class StreamFilterExample {
         List<String> nameLenght = names.stream().filter(p -> p.length() > 3).collect(Collectors.toList());
         System.out.println(nameLenght);
         // Lấy danh sách persion thoả mãn điều kiện chiều cao > 170.
-        List<Persion> l1 = PersionRepository.getAllPersions()
+        List<Person> l1 = PersonRepository.getAllPersions()
                 .stream()
                 .filter(per-> per.getHeight() >170)
                 .collect(Collectors.toList());
@@ -34,7 +34,7 @@ public class StreamFilterExample {
         l1.forEach(System.out::println);
         // Lấy danh sánh persion thoả mãn là nam có chiều cao > 170.
         System.out.println("In ra những Persion thoả mãn điều kiện Height > 170, và là Male");
-        PersionRepository.getAllPersions()
+        PersonRepository.getAllPersions()
                 .stream()
                 .filter(per -> per.getHeight()>170)
                 .filter(per-> per.getGender().equals("Male"))
@@ -43,7 +43,7 @@ public class StreamFilterExample {
 
         // Viết theo check điều kiện perdicate:
         System.out.println("Check theo điều kiện predicate viết ngoài: ");
-        PersionRepository.getAllPersions()
+        PersonRepository.getAllPersions()
                 .stream()
                 .filter(p1.and(p2))
                 .collect(Collectors.toList())

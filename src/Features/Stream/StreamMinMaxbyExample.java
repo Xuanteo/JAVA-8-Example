@@ -1,7 +1,7 @@
 package Features.Stream;
 
-import Features.Repository.Persion;
-import Features.Repository.PersionRepository;
+import Features.Repository.Person;
+import Features.Repository.PersonRepository;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -11,31 +11,31 @@ import java.util.stream.Collectors;
 
 public class StreamMinMaxbyExample {
     // Viết method tìm ra người cao nhất trong list Person:
-    static Optional<Persion> getTallestPerson() {
-        return PersionRepository.getAllPersions()
+    static Optional<Person> getTallestPerson() {
+        return PersonRepository.getAllPersions()
                 .stream()
-                .collect(Collectors.maxBy(Comparator.comparing(Persion::getHeight)));
+                .collect(Collectors.maxBy(Comparator.comparing(Person::getHeight)));
     }
 
     // Viết method tìm ra người thấp nhất trong list Persion
-    static Optional<Persion> getShortestPerson() {
-        return PersionRepository.getAllPersions()
+    static Optional<Person> getShortestPerson() {
+        return PersonRepository.getAllPersions()
                 .stream()
-                .collect(Collectors.minBy(Comparator.comparing(Persion::getHeight)));
+                .collect(Collectors.minBy(Comparator.comparing(Person::getHeight)));
     }
     // Viết kiểm tra kịch bản có 2 người có cùng chiều cao trong List:
-    static List<Persion> filterMultiplePerson(){
+    static List<Person> filterMultiplePerson(){
         // Khai báo ra 1 list rỗng:
-        List<Persion> personList = new ArrayList<Persion>();
+        List<Person> personList = new ArrayList<Person>();
         // Tuỳ chọn person có chiều cao nhất:
-        Optional<Persion> maxHeight = getTallestPerson();
+        Optional<Person> maxHeight = getTallestPerson();
         // Kiểm tra 1 đối tượng xem có rỗng hay không.
-        Persion persion = maxHeight.isPresent() ? maxHeight.get() : null;
+        Person person = maxHeight.isPresent() ? maxHeight.get() : null;
         // Check điều kiện:
-        if (persion != null){
-            personList = PersionRepository.getAllPersions()
+        if (person != null){
+            personList = PersonRepository.getAllPersions()
                     .stream()
-                    .filter(per-> per.getHeight() == persion.getHeight())
+                    .filter(per-> per.getHeight() == person.getHeight())
                     .collect(Collectors.toList());
         }
         return personList;
@@ -43,7 +43,7 @@ public class StreamMinMaxbyExample {
 
     public static void main(String[] args) {
         // In ra Person có chiều cao cao nhất:
-        Optional<Persion> tallestPersion = getTallestPerson();
+        Optional<Person> tallestPersion = getTallestPerson();
         System.out.println("Maxby Tallest Person: " + tallestPersion.get());
         // In ra person có chiều cao thấp nhất:
         System.out.println("Minby Shortest Person: " + getShortestPerson().get());

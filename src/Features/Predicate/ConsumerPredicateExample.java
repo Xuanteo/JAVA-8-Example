@@ -2,8 +2,8 @@ package Features.Predicate;
 
 
 
-import Features.Repository.Persion;
-import Features.Repository.PersionRepository;
+import Features.Repository.Person;
+import Features.Repository.PersonRepository;
 
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -12,13 +12,13 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class ConsumerPredicateExample {
-    static Predicate<Persion> p1 = p -> p.getHeight() >= 170;
-    static Predicate<Persion> p2 = p -> p.getGender().equals("Male");
+    static Predicate<Person> p1 = p -> p.getHeight() >= 170;
+    static Predicate<Person> p2 = p -> p.getGender().equals("Male");
     // Có thể viết BiConsumer để check.
     static BiPredicate<Integer, String> p3 = (height, gender) -> height >= 170 && gender.equals("Male");
 
     static BiConsumer<String, List<String>> nameHobbiesConsumer = (name, hobbies) -> System.out.println(name+ " " + hobbies);
-    static Consumer<Persion> persionConsumer = persion -> {
+    static Consumer<Person> persionConsumer = persion -> {
         // check chiều cao và giới tính nếu đúng sẽ in tên người dùng và sở thích.
 //        if (p1.and(p2).test(persion)){
 //            nameHobbiesConsumer.accept(persion.getName(), persion.getHobbies());
@@ -29,7 +29,7 @@ public class ConsumerPredicateExample {
         }
     };
     public static void main(String[] args) {
-    List<Persion> listPersion = PersionRepository.getAllPersions();
-    listPersion.forEach(persionConsumer);
+    List<Person> listPerson = PersonRepository.getAllPersions();
+    listPerson.forEach(persionConsumer);
     }
 }
