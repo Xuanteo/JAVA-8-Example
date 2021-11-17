@@ -15,12 +15,19 @@ public class PersonRepository {
         Person p6 = new Person("Vu", 174, 9700, "Male", 2, Arrays.asList("Football", "Swimming", "Backetball"));
         Person p7 = new Person("Tien", 182, 9000, "Male", 2, Arrays.asList("Football", "Backetball"));
         return Arrays.asList(p1, p2, p3, p4, p5, p6, p7);
-    };
+    }
+
+    ;
 
     public static Person getPersion() {
         return new Person("Xuan", 167, 2000, "Male", 2, Arrays.asList("Football", "Swimming", "Backetball"));
-    };
-    public static Optional<Person> getOptionalPerson(){
-        return Optional.of(getPersion());
+    }
+
+    ;
+
+    public static Optional<Person> getOptionalPerson() {
+        Person person = getPersion();
+        person.setAddress(Optional.of(new Address("7 th block", "Ashburn", "Virginia", "USA", 20000)));
+        return Optional.of(person);
     }
 }

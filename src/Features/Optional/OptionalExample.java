@@ -1,6 +1,7 @@
 package Features.Optional;
 
 import Features.Repository.Person;
+import Features.Repository.PersonRepository;
 
 import java.util.Optional;
 
@@ -16,6 +17,8 @@ public class OptionalExample {
 //        String name1 = Optional.ofNullable(myName("John")).get();
         System.out.println(name.isPresent() ? name.get() : "Data Empty");
 //        System.out.println(Optional.ofNullable(myName("John")));
+        Optional<String> personname = personNameWithOptional(PersonRepository.getOptionalPerson());
+        System.out.println("Optional person name is: "+personname.get());
     }
 
     // Viết 1 method lấy name:
